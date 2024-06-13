@@ -1,6 +1,8 @@
 import sqlite3
+import sqlalchemy
 import collections
 import sys
+import os
 import threading
 import subprocess
 
@@ -72,10 +74,14 @@ class DialogApp(QtWidgets.QDialog):
         pass
 
 
-if __name__ == "__main__":
+def main() -> None:
     app = QtWidgets.QApplication(sys.argv)
 
     window = MainApp()
     window.show()
 
     sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()
