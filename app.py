@@ -18,30 +18,37 @@ class MainApp(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
 
         # ? Connections
-        self.ui.add_edit_btn.clicked.connect(self.add_edit_btn)
+        self.ui.act_btn.clicked.connect(self.act)
+        self.ui.add_edit_btn.clicked.connect(self.add_edit)
+        self.ui.del_btn.clicked.connect(self.delete)
+        self.ui.ping_btn.clicked.connect(self.ping)
+
+        self.ui.flush_btn.clicked.connect(self.flush)
+        self.ui.dhcp_btn.clicked.connect(self.dhcp)
+        self.ui.release_btn.clicked.connect(self.release)
 
     # & btn fucntions
-    def act_btn(self):
-        pass
+    def act(self):
+        print("activated")
 
-    def del_btn(self):
-        pass
+    def delete(self):
+        print("DELETE")
 
-    def add_edit_btn(self):
+    def add_edit(self):
         self.dialog = DialogApp()
         self.dialog.exec()
 
-    def ping_btn(self):
-        pass
+    def ping(self):
+        print("PING THE DNS")
 
-    def flush_btn(self):
-        pass
+    def flush(self):
+        print("FLUSHED")
 
-    def dhcp_btn(self):
-        pass
+    def dhcp(self):
+        print("dhcp")
 
-    def release_btn(self):
-        pass
+    def release(self):
+        print("release and renew")
 
     # & get adapter function : get all adapters in the computer for easy access
     # & defualt adapter is Wi-fi
@@ -65,13 +72,16 @@ class DialogApp(QtWidgets.QDialog):
         self.ui.setupUi(self)
 
         # ? connections
+        self.ui.buttonBox.accepted.connect(self.ok)
+        self.ui.buttonBox.rejected.connect(self.cancel)
 
     # & btn functions
+
     def ok(self):
-        pass
+        print("OK")
 
     def cancel(self):
-        pass
+        print("CANECL")
 
 
 def main() -> None:
